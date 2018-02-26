@@ -1,7 +1,7 @@
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
 
 # Azure Blob custom filesystem for Laravel 5
-This repo is fork of [League\Flysystem\Azure [BETA]](https://github.com/thephpleague/flysystem-azure)
+This repo is fork of [League\Flysystem\Azure](https://github.com/thephpleague/flysystem-azure)
 
 # Why forked?
 Need to integrate with L5 out of the box, and **url** method for **Storage** interface  
