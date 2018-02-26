@@ -46,34 +46,21 @@ section of your Storage account settings.
 ```php
 public function someUploadFuncName(Request $request)
 {
-    $file = $request->file('file_name_from_request');
-    // check mime type
-    if ($file->getClientMimeType() == 'application/x-font-ttf') {
-
-        // feel free to change this logic, that is an example
-        $baseFileName = strtolower($file->getClientOriginalName());
-        $ext = strtolower($file->getClientOriginalExtension());
-        $filenameWithoutExt = preg_replace("~\." . $ext . "$~i", '', $baseFileName);
-        $diskFileName = $font->id . '-' . preg_replace_array([
-                "~[\r\n\t ]~",
-                "~[^a-z0-9\_\-]~",
-            ], [
-                "_",
-                "_",
-            ],
-            $filenameWithoutExt
-            ) . '.' . $ext;
-        // folder name in container, could be empty
-        $folderName='some-folder-name';
-        
-        // store file on azure blob
-        $file->storeAs($folderName, $diskFileName, ['disk' => 'account_fonts']);
-
-        // save file name somewhere
-        $saveFileName = $folderName . '/' . $diskFileName;
-    }
+    $file = $request->file('file_name_from_request');  
     
-    // go back or etc..
+    // .. file name logic
+    // .. file folder logic
+    
+    $file->storeAs($fileFolder, $fileName, [
+        'disk' => 'my_azure_disk1'
+    ]);  
+    
+    // save file name logic
+    // to create file URL by name later
+    // maybe you want to save file name and folder separated
+    $fileNameToSave = $folderName . '/' . $diskFileName;
+    
+    // .. save file name to DB or etc.
 }
 ```
 
@@ -81,12 +68,12 @@ public function someUploadFuncName(Request $request)
 
 We got file name for selected disk (folder related if folder exists)
 ```php
-echo Storage::disk('my_azure_disk1')->url($file_name);
+echo Storage::disk('my_azure_disk1')->url($fileName);
 ```
 That is also working in blade templates like this
 ```
-<a href="{{ Storage::disk('my_azure_disk1')->url($file_name) }}"
-    target="_blank">{{ $file_name }}</a>
+<a href="{{ Storage::disk('my_azure_disk1')->url($fileName) }}"
+    target="_blank">{{ $fileName }}</a>
 ```
 
 # How to delete file 
