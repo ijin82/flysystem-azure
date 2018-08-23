@@ -1,4 +1,5 @@
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
+[![Total Downloads](https://poser.pugx.org/ijin82/flysystem-azure/downloads)](https://packagist.org/packages/ijin82/flysystem-azure)
 
 # Azure Blob custom filesystem for Laravel 5
 This repo is fork of [League\Flysystem\Azure](https://github.com/thephpleague/flysystem-azure)
