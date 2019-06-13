@@ -88,6 +88,28 @@ public function someDeleteFuncName($id)
     // go back or etc..
 }
 ```
+# This can be useful
+Sometimes you need to set up mime types manually (for CDN maybe) to get back correct mime type values. You can do that like this (couple types forced for example):
+```php
+$fileConents = Storage::disk('public_or_another_local_disk')->get($file);
+
+$forcedMimes = [
+    'js' => 'application/javascript',
+    'json' => 'application/json',
+];
+
+$fileExt = \File::extension($file);
+
+if (array_key_exists($fileExt, $forcedMimes)) {
+    $fileMime = $forcedMimes[$fileExt];
+} else {
+    $fileMime = mime_content_type(Storage::disk('public_or_another_local_disk')->path($file));
+}
+
+Storage::disk('my_custom_azure_disk')->put($fileName, $fileConents, [
+    'mimetype' => $fileMime,
+]);
+```
 
 # Additions
 1. Original repo is [here](https://github.com/thephpleague/flysystem-azure)
