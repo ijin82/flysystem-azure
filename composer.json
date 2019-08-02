@@ -1,6 +1,6 @@
 {
     "name": "ijin82/flysystem-azure",
-    "description": "Flysystem adapter for Windows Azure (Fork of league/flysystem-azure)",
+    "description": "Laravel 5.* adapter for Windows Azure (Fork of league/flysystem-azure)",
     "license": "MIT",
     "authors": [
         {
