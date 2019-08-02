@@ -110,7 +110,10 @@ Storage::disk('my_custom_azure_disk')->put($fileName, $fileConents, [
     'mimetype' => $fileMime,
 ]);
 ```
-You can use **wget -S https://your-file-host.com/file-name.jpg** to get response with headers including **Content-Type**
+You can use wget to get response with headers including *Content-Type*
+```
+wget -S https://your-file-host.com/file-name.jpg
+```
 
 # Additions
 1. Original repo is [here](https://github.com/thephpleague/flysystem-azure)
