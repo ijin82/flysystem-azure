@@ -88,7 +88,7 @@ public function someDeleteFuncName($id)
     // go back or etc..
 }
 ```
-# This can be useful
+# Mimetypes (this can be useful)
 Sometimes you need to set up mime types manually (for CDN maybe) to get back correct mime type values. You can do that like this (couple types forced for example):
 ```php
 $fileConents = Storage::disk('public_or_another_local_disk')->get($file);
