@@ -1,12 +1,15 @@
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
 [![Total Downloads](https://poser.pugx.org/ijin82/flysystem-azure/downloads)](https://packagist.org/packages/ijin82/flysystem-azure)
 
-# Azure Blob custom filesystem for Laravel 5
+# DEV-MASTER now  
+
+# Azure Blob custom filesystem for Laravel 5-10
 This repo is fork of [League\Flysystem\Azure](https://github.com/thephpleague/flysystem-azure)
 
 # Why forked?
 Need to integrate with L5 out of the box, and **url** method for **Storage** interface  
-All examples below L5 related.   
+All examples below L5 related.  
+**Add update to L10 desk** 
 
 # How to install in Laravel 5 application
 
