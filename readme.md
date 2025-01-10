@@ -10,17 +10,13 @@ Tested with Laravel 10, probably supported Laravel 8 & 9, additional tests neede
 Check your solutions carefully before release.
 
 # Why forked?
-Need to integrate with L5 out of the box, and **url** method for **Storage** interface  
-All examples below L5 related.  
-**Add update to L10 desk** 
+Needed to integrate with L5+ out of the box, and **url** method for **Storage** interface.   
 
 # How to install in Laravel application
-
 Install package
 ```bash
 composer require ijin82/flysystem-azure
 ```
-
 Open **config/app.php** and add this to providers section
 ```
 Ijin82\Flysystem\Azure\AzureBlobServiceProvider::class,
