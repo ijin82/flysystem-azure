@@ -1,6 +1,6 @@
 {
     "name": "ijin82/flysystem-azure",
-    "description": "Laravel 5.* adapter for Windows Azure (Fork of league/flysystem-azure)",
+    "description": "Laravel 10+ adapter for Windows Azure (Fork/Hack of league/flysystem-azure)",
     "license": "MIT",
     "authors": [
         {
@@ -13,7 +13,7 @@
         }
     ],
     "require": {
-        "php": ">=5.5.0",
+        "php": ">=8.0",
         "league/flysystem": "^3.16.0",
         "league/flysystem-azure-blob-storage": "^3.28.0"
     },

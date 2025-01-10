@@ -18,22 +18,26 @@ class AzureBlobServiceProvider extends ServiceProvider
     {
         Storage::extend('azure_blob', function ($app, $config) {
 
-//            return new Filesystem(new AzureAdapter(
-//                $blobService,
-//                $config
-//            ));
-
             $blobService = BlobRestProxy::createBlobService(
                 $config['endpoint'],
                 [] // $optionsWithMiddlewares
             );
 
-            $adapter = new AzureAdapter(
+            $adapter = new \League\Flysystem\AzureBlobStorage\AzureBlobStorageAdapter(
                 $blobService,
                 $config['container'],
             );
 
-            return new Filesystem($adapter);
+            $filesystem = new AzureFilesystem(
+                $adapter,
+                [
+                    'visibility' => 'public',
+                    'public_url' => ($config['blob_service_url'] . '/' . $config['container']),
+                    'container' => $config['container']
+                ]
+            );
+
+            return $filesystem;
         });
     }
 
